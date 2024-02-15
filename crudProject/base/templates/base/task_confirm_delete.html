@@ -1,0 +1,20 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <a class="btn btn-primary btn-sm rounded-0" href="{% url 'tasks' %}">&#8592; Back</a>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <p>Tem certeza que deseja deletar esta tarefa? <b>"{{task}}"</b> </p>
+            <input class="btn btn-danger btn-sm rounded-0" type="submit" value="Delete" />
+        </form>
+    </div>
+
+  </div>
+
+
+
+{% endblock content %}
