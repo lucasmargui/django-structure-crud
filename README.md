@@ -9,6 +9,9 @@
 
 ## Criação do crudProject
 
+<details>
+  <summary>Clique para mostrar conteúdo</summary>
+  
 Projeto inicial criado com estrutura principal, alterando urls.py para adicionar base.urls para adicionar os packages. 
  ```
 django-admin startproject crudProject
@@ -41,10 +44,18 @@ INSTALLED_APPS = [
 ]
 ```
 
+</details>
+
+
+
+
 
 
 ## Criação da base
 
+<details>
+  <summary>Clique para mostrar conteúdo</summary>
+  
 Criação de um pacote que será responsável pela lógica de Crud.
 
  ```
@@ -102,8 +113,16 @@ O caminho para achar o arquivo html usará como base a configuração através d
 path('task-delete/<int:pk>/', DeleteView.as_view(), name='task-delete')
 ```
 
+</details>
+
+
+
+
 ## Criação Template
 
+<details>
+  <summary>Clique para mostrar conteúdo</summary>
+  
 Diretório responsável por armazenar as páginas htmls que serão renderizadas.
 
 Por convenção, dentro de "template" é utilizado nome_do_projeto/nome_da_view.html para que framework reconheça o caminho.
@@ -125,11 +144,24 @@ class TaskList(ListView):
 * context_object_name => É apenas um nome de variável compreensível para humanos para acessar a partir de modelos
 * template_name = Por default o path utiliza o sufixo _list + nome do model task para procurar pelo arquivo task_list.html ou utilizando template_name para alteração dessa configuração 
 
+</details>
+
+
+
+
 # Resultado
 
 ## Index
-<img src="https://cdn.discordapp.com/attachments/1046824853015113789/1207778478141874258/image.png?ex=65e0e25c&is=65ce6d5c&hm=bbeae0f7fe59d4c212c8960fa038612dc3f8505ec6d12797a79a868434c3e0d4&" alt="">
+
+<div align="center">
+<img src="https://cdn.discordapp.com/attachments/1046824853015113789/1207778478141874258/image.png?ex=65e0e25c&is=65ce6d5c&hm=bbeae0f7fe59d4c212c8960fa038612dc3f8505ec6d12797a79a868434c3e0d4&" style="width:80%">
+</div>
+
 
 ## Create/Update
-<img src="https://cdn.discordapp.com/attachments/1046824853015113789/1207778941067206716/image.png?ex=65e0e2ca&is=65ce6dca&hm=f9055c95161be8dd7838685eb8c7370278311ec311bee78de56407e66cdfd066&" alt="">
+
+<div align="center">
+<img src="https://cdn.discordapp.com/attachments/1046824853015113789/1207778941067206716/image.png?ex=65e0e2ca&is=65ce6dca&hm=f9055c95161be8dd7838685eb8c7370278311ec311bee78de56407e66cdfd066&" style="width:80%">
+</div>
+
 
