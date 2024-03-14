@@ -149,19 +149,6 @@ class TaskList(ListView):
 
 
 
-# Resultado
 
-## Index
-
-<div align="center">
-<img src="https://cdn.discordapp.com/attachments/1046824853015113789/1207778478141874258/image.png?ex=65e0e25c&is=65ce6d5c&hm=bbeae0f7fe59d4c212c8960fa038612dc3f8505ec6d12797a79a868434c3e0d4&" style="width:80%">
-</div>
-
-
-## Create/Update
-
-<div align="center">
-<img src="https://cdn.discordapp.com/attachments/1046824853015113789/1207778941067206716/image.png?ex=65e0e2ca&is=65ce6dca&hm=f9055c95161be8dd7838685eb8c7370278311ec311bee78de56407e66cdfd066&" style="width:80%">
-</div>
 
 
