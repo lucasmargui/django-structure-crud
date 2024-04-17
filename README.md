@@ -1,18 +1,18 @@
-<H1 align="center">Estrutura Crud</H1>
-<p align="center">🚀 Projeto de criação de uma estrutura de Crud utilizando Django para referências futuras</p>
+<H1 align="center">Crud Structure</H1>
+<p align="center">🚀 Project to create a Crud structure using Django for future references</p>
 
-## Recursos Utilizados
+## Resources Used
 
 * Django 5.0.2
 * Python 3.10
 
 
-## Criação do crudProject
+## Create crudProject
 
 <details>
-  <summary>Clique para mostrar conteúdo</summary>
-  
-Projeto inicial criado com estrutura principal, alterando urls.py para adicionar base.urls para adicionar os packages. 
+ <summary>Click to show content</summary>
+
+Initial project created with main structure, changing urls.py to add base.urls to add the packages.
  ```
 django-admin startproject crudProject
  ```
@@ -25,8 +25,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('base.urls')),
+ path('admin/', admin.site.urls),
+ path('', include('base.urls')),
 ]
 ```
 
@@ -34,13 +34,13 @@ urlpatterns = [
 
 ```
 INSTALLED_APPS = [
-    'base.apps.BaseConfig',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+ 'base.apps.BaseConfig',
+ 'django.contrib.admin',
+ 'django.contrib.auth',
+ 'django.contrib.contenttypes',
+ 'django.contrib.sessions',
+ 'django.contrib.messages',
+ 'django.contrib.staticfiles',
 ]
 ```
 
@@ -51,12 +51,12 @@ INSTALLED_APPS = [
 
 
 
-## Criação da base
+## Create base app
 
 <details>
-  <summary>Clique para mostrar conteúdo</summary>
-  
-Criação de um pacote que será responsável pela lógica de Crud.
+ <summary>Click to show content</summary>
+
+Creation of a package that will be responsible for Crud's logic.
 
  ```
 python manage.py startapp base
@@ -64,42 +64,42 @@ python manage.py startapp base
 
 
 ### models.py
-Modelo que será utilizado para criação das tarefas.
+Model that will be used to create tasks.
 
 ### admin.py
-Mapeando cada model e registrando como uma configuração que será utilizada na página de admin.
- 
+Mapping each model and registering it as a configuration that will be used on the admin page.
+
 ### urls.py
 
-Possuí o mapeamento das rotas.
+I have the route mapping.
 
-Os caminhos e as respectivas views que irá renderizar.
+The paths and respective views that will render.
 
 ```
-    path('', TaskList.as_view(), name='tasks'),
-    path('task/<int:pk>/', TaskDetail.as_view(), name='task'),
-    path('task-create/', TaskCreate.as_view(), name='task-create'),
-    path('task-update/<int:pk>/', TaskUpdate.as_view(), name='task-update'),
-    path('task-delete/<int:pk>/', DeleteView.as_view(), name='task-delete'),
+ path('', TaskList.as_view(), name='tasks'),
+ path('task/<int:pk>/', TaskDetail.as_view(), name='task'),
+ path('task-create/', TaskCreate.as_view(), name='task-create'),
+ path('task-update/<int:pk>/', TaskUpdate.as_view(), name='task-update'),
+ path('task-delete/<int:pk>/', DeleteView.as_view(), name='task-delete'),
 ```
 
 #### List
 
-Por default, ao utilizar nomedaviewcriada.as_view(), o caminho para achar o arquivo html usará como base nomedomodel_nomedaação.html (task_list.html) ou alterando essa configuração através de template_name em views.py.
+By default, when using createdviewname.as_view(), the path to find the html file will be based on modelname_actionname.html (task_list.html) or by changing this configuration through template_name in views.py.
 ```
 path('', TaskList.as_view(), name='tasks'),
 ```
 
 #### Create
 
-O caminho para achar o arquivo html usará como base nomedomodel_form.html (task_form.html) ou alterando essa configuração através de template_name em views.py.
+The path to find the html file will be based on model_form.html name (task_form.html) or by changing this configuration through template_name in views.py.
 ```
 path('task-create/', TaskCreate.as_view(), name='task-create')
 ```
 
 #### Update
 
-O caminho para achar o arquivo html usará como base nomedomodel_form.html (task_form.html) ou alterando essa configuração através de template_name em views.py.
+The path to find the html file will be based on model_form.html name (task_form.html) or by changing this configuration through template_name in views.py.
 
 ```
 path('task-update/<int:pk>/', TaskUpdate.as_view(), name='task-update')
@@ -107,7 +107,7 @@ path('task-update/<int:pk>/', TaskUpdate.as_view(), name='task-update')
 
 #### Delete
 
-O caminho para achar o arquivo html usará como base a configuração através de template_name em views.py.
+The path to find the html file will be based on the configuration through template_name in views.py.
 
 ```
 path('task-delete/<int:pk>/', DeleteView.as_view(), name='task-delete')
@@ -118,37 +118,30 @@ path('task-delete/<int:pk>/', DeleteView.as_view(), name='task-delete')
 
 
 
-## Criação Template
+## Create template 
 
 <details>
-  <summary>Clique para mostrar conteúdo</summary>
-  
-Diretório responsável por armazenar as páginas htmls que serão renderizadas.
+ <summary>Click to show content</summary>
 
-Por convenção, dentro de "template" é utilizado nome_do_projeto/nome_da_view.html para que framework reconheça o caminho.
- 
+Directory responsible for storing the html pages that will be rendered.
+
+By convention, within "template" project_name/view_name.html is used so that the framework recognizes the path.
+
 
 ### Views.py
-Responsável pelo controller de renderização de views e fluxo de dados.
+Responsible for the view rendering and data flow controller.
 
 
 
 ```
 class TaskList(ListView):
-    model = Task
-    context_object_name = 'tasks'
-    template_name = 'base/task_list.html'
+ model = Task
+ context_object_name = 'tasks'
+ template_name = 'base/task_list.html'
 ```
 
-* model => Utiliza model como referência para renderização da view
-* context_object_name => É apenas um nome de variável compreensível para humanos para acessar a partir de modelos
-* template_name = Por default o path utiliza o sufixo _list + nome do model task para procurar pelo arquivo task_list.html ou utilizando template_name para alteração dessa configuração 
+* model => Uses model as a reference for rendering the view
+* context_object_name => It's just a human understandable variable name to access from models
+* template_name = By default the path uses the suffix _list + model task name to search for the task_list.html file or using template_name to change this configuration
 
 </details>
-
-
-
-
-
-
-
